@@ -1,3 +1,6 @@
 import { FC } from "react";
+import s from "./stop-watch-page.module.css";
 
-export const StopWatchPage: FC = () => <div>Stop Watch Page</div>;
+export const StopWatchPage: FC = () => (
+  <div className={s.page}>Stop Watch Page</div>
+);
