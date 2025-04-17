@@ -1,33 +1,21 @@
-import { FC, useState } from 'react'
-import reactLogo from '@images/react.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { FC } from "react";
+import "./app.css";
+import { Header } from "@components/header";
+import { Route, Routes } from "react-router-dom";
+import { TimerPage } from '@pages';
+import { StopWatchPage } from '@pages';
+import { HomePage } from '@pages';
 
 export const App: FC = () => {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <main>
+      <Header />
+
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="/timer" element={<TimerPage />} />
+        <Route path="/stopwatch" element={<StopWatchPage />} />
+      </Routes>
+    </main>
+  );
+};

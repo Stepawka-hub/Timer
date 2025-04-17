@@ -4,8 +4,11 @@ import {
   useSelector as selectorHook,
   TypedUseSelectorHook,
 } from "react-redux";
+import { reducer as appReducer } from "@slices/app";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  app: appReducer,
+});
 
 export const store = configureStore({
   reducer: rootReducer,
