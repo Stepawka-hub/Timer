@@ -6,11 +6,12 @@ import { FC, useCallback, useState } from "react";
 import s from "./stop-watch.module.css";
 import { RecordsList } from "@components/records-list";
 import { useRecords } from "@hooks/useRecords";
+import clsx from "clsx";
 
 export const StopWatch: FC = () => {
   const [isStart, setIsStart] = useState(false);
   const [isPause, setIsPause] = useState(false);
-  const { records, addRecord } = useRecords();
+  const { records, addRecord, clearList } = useRecords();
 
   const { time, setTime, startInterval, stopInterval } = useInterval(STEP);
   const formattedTime = getFormattedTime(time);
@@ -34,8 +35,9 @@ export const StopWatch: FC = () => {
     setIsPause(false);
     setIsStart(false);
     setTime(0);
+    clearList();
     stopInterval();
-  }, [setTime, stopInterval]);
+  }, [setTime, stopInterval, clearList]);
 
   return (
     <div className={s.container}>
@@ -47,12 +49,20 @@ export const StopWatch: FC = () => {
         {isStart && <Circle isPause={isPause} />}
       </div>
 
-      <div className={s.controls}>
+      <div className={clsx(s.controls, { [s.active]: isStart })}>
         <div className={s.buttons}>
-          <button className={s.button} onClick={() => addRecord(time)}>
+          <button
+            className={s.button}
+            disabled={!isStart}
+            onClick={() => addRecord(time)}
+          >
             Записать
           </button>
-          <button className={s.button} onClick={stopStopWatch}>
+          <button
+            className={s.button}
+            disabled={!isStart}
+            onClick={stopStopWatch}
+          >
             Сбросить
           </button>
         </div>

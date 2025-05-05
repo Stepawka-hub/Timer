@@ -1,14 +1,14 @@
+import { formatTimeHHMMSS } from '@utils/time';
 import { FC, memo } from "react";
-import { RecordProps } from "./type";
 import s from "./record.module.css";
-import { getFormattedTime } from '@utils/time';
+import { RecordProps } from "./type";
 
 export const Record: FC<RecordProps> = memo(({ position, time }) => {
   const formattedPosition = position.toString().padStart(2, "0");
-  const formattedTime = getFormattedTime(time);
+  const formattedTime = formatTimeHHMMSS(time);
   
   return <article className={s.record}>
-    <span>{formattedPosition}</span>
-    <span>{formattedTime}</span>
+    <span className={s.text}>{formattedPosition}</span>
+    <span className={s.text}>{formattedTime}</span>
   </article>;
 });

@@ -10,7 +10,6 @@ export const RecordsList: FC<RecordsListProps> = memo(({ records }) => {
 
   return (
     <section>
-      <h2 className={s.title}>Записи</h2>
       <div className={s.list}>{recordElements}</div>
     </section>
   );

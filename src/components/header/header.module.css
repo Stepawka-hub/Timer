@@ -21,11 +21,10 @@
   transition: all 0.2s ease-in;
 }
 
-.link:hover {
-  opacity: 0.9;
-  transform: scale(1.1);
+.link:not(.link_active):hover {
+  transform: scale(1.035);
 }
 
-.link:active {
+.link:not(.link_active):active {
   opacity: 0.7;
 }

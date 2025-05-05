@@ -2,3 +2,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.text {
+  font-size: 1.15rem;
+}
