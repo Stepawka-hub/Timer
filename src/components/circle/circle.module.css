@@ -1,0 +1,18 @@
+.circle {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--circle-color);
+  animation: GFG 5s infinite linear;
+}
+
+@keyframes GFG {
+  0% {
+    transform: rotate(0deg) translateY(-197px);
+  }
+
+  100% {
+    transform: rotate(360deg) translateY(-197px);
+  }
+}
