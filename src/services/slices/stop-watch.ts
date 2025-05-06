@@ -41,7 +41,7 @@ const stopWatchSlice = createSlice({
         ...e,
         position: i + 1,
       }));
-    }
+    },
   },
   selectors: {
     getTimeSelector: (state) => state.time,

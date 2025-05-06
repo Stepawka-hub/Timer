@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-around;
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
   background-color: var(--header-color);
+  box-shadow: 0 2px 16px var(--header-shadow-color);
 }
 
 .link {
@@ -14,10 +14,11 @@
   text-align: center;
   text-decoration: none;
 
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--link-color);
   background-color: var(--link-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
   transition: all 0.2s ease-in;
 }
 

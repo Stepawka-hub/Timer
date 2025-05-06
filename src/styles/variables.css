@@ -1,7 +1,35 @@
 :root {
-  --primary-color: #000;
-  --secondary-color: #fff;
-  --theme-primary-color: #4b84ff;
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
+
+  --primary-color: #4b84ff;
+
+  --background-color-to: #b4d7fe;
+  --background-color-center: #f5e3ff;
+  --background-color-from: #b4d7fe;
+
+  --header-color: #4b84ff;
+  --header-shadow-color: rgba(62, 139, 253, 0.75); 
+  --link-color: #4b84ff;
+  --link-bg-color: #fff;
+
+  --stopwatch-bg-color: #8cc5ff;
+  --stopwatch-border-color: #4b84ff;
+  --waves-color: rgba(91, 143, 255, 0.5);
+  --circle-color: #4b84ff;
+
+  --btn-color: #4b84ff;
+  --disabled-btn-color: #ececec;
+  --disabled-border-color: #ececec;
+  --disabled-text-color: #707070;
+}
+
+[data-theme=""] {
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
+
+  --primary-color: #4b84ff;
+  --background-color: #c5d7ff;
 
   --header-color: #4b84ff;
   --link-color: #fff;
@@ -11,8 +39,4 @@
   --disabled-btn-color: #858484;
 
   --circle-color: #6aadff;
-
-  --toast-box-shadow: #ffddad;
-  --toast-error-color: #e04f5f;
-
 }

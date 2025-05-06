@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 10rem;
-  margin-top: 3.5rem;
+  padding-top: 7rem;
 }
 
 .stopWatch {
@@ -16,9 +16,11 @@
   width: 25rem;
   height: 25rem;
   border-radius: 50%;
-  border: 0.35rem solid var(--theme-primary-color);
+  border: 0.35rem solid var(--stopwatch-border-color);
+  box-shadow: 0 0 8px 1px var(--stopwatch-border-color);
 
-  color: var(--theme-primary-color);
+  background-color: var(--stopwatch-bg-color);
+  color: var(--secondary-text-color);
 }
 
 .stopWatch:after {
@@ -31,7 +33,7 @@
   border-radius: 50%;
 
   opacity: 0;
-  background-color: rgba(138, 171, 255, 0.5);
+  background-color: var(--waves-color);
   transform: scale(1, 1);
 }
 
@@ -40,9 +42,11 @@
 }
 
 .time {
-  font-size: 2.5rem;
+  font-size: 2.85rem;
   font-weight: 600;
   user-select: none;
+  word-break: break-all;
+  text-align: center; 
 }
 
 .controls {
@@ -54,26 +58,27 @@
 
 .buttons {
   display: flex;
-  gap: 0.75rem;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .button {
   flex: 1 1;
-  padding: 0.5rem;
+  padding: 0.55rem 0.5rem;
   border-radius: 2rem;
-  border: 3px solid var(--btn-color);
+  border: 2px solid var(--btn-color);
 
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--secondary-color);
+
+  color: var(--secondary-text-color);
   background-color: var(--btn-color);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
   transition: .25s ease-in;
 }
 
 .button:not(:disabled):hover {
-  transform: scale(1.02);
+  transform: scale(1.035);
 }
 
 .button:not(:disabled):active {
@@ -82,7 +87,8 @@
 
 .button:disabled {
   background-color: var(--disabled-btn-color);
-  border-color: var(--disabled-btn-color);
+  border-color: var(--disabled-border-color);
+  color: var(--disabled-text-color);
 }
 
 @keyframes waves {

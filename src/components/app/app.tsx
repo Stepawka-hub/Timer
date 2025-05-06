@@ -4,10 +4,9 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { TimerPage } from "@pages";
 import { StopWatchPage } from "@pages";
 import s from "./app.module.css";
-import { useStopwatchTimer } from "@hooks/useStopwatchTimer";
+import { useStopwatchTimer } from '@hooks/useStopwatchTimer';
 
 export const App: FC = () => {
-  console.log("RENDER");
   useStopwatchTimer();
 
   return (
