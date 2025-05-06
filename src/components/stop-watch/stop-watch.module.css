@@ -21,6 +21,24 @@
   color: var(--theme-primary-color);
 }
 
+.stopWatch:after {
+  content: '';
+  position: absolute;
+  top: 49%;
+  left: 49%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+
+  opacity: 0;
+  background-color: rgba(138, 171, 255, 0.5);
+  transform: scale(1, 1);
+}
+
+.stopWatch:focus:not(:active)::after {
+  animation: waves 1s ease-out;
+}
+
 .time {
   font-size: 2.5rem;
   font-weight: 600;
@@ -50,6 +68,7 @@
   font-weight: 500;
   color: var(--secondary-color);
   background-color: var(--btn-color);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
   transition:
     opacity .2s ease-in,
     transform .25s ease-in
@@ -61,4 +80,19 @@
 
 .button:active {
   opacity: 0.8;
+}
+
+@keyframes waves {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(35, 35);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(60, 60);
+  }
 }

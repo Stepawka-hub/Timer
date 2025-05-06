@@ -44,6 +44,7 @@ export const StopWatch: FC = () => {
       <div
         className={s.stopWatch}
         onClick={isStart ? pauseStopWatch : startStopWatch}
+        tabIndex={0}
       >
         <span className={s.time}>{formattedTime}</span>
         {isStart && <Circle isPause={isPause} />}
