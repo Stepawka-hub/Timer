@@ -1,8 +1,21 @@
 .record {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
-.text {
-  font-size: 1.15rem;
+.position {
+  flex: 20%;
+}
+
+.diff,
+.time {
+  flex: 40%;
+  text-align: right;
+}
+
+.diff {
+  color: var(--record-diff-color);
 }

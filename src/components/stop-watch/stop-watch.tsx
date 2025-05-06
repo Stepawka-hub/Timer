@@ -37,7 +37,8 @@ export const StopWatch: FC = () => {
 
   const resetStopWatch = useCallback(() => {
     reset();
-  }, [reset]);
+    setTheme("default");
+  }, [reset, setTheme]);
 
   useEffect(() => {
     if (isPaused) {

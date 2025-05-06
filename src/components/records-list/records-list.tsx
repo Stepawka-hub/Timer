@@ -7,6 +7,10 @@ import s from "./records-list.module.css";
 export const RecordsList: FC = memo(() => {
   const records = useSelector(getRecordsSelector);
 
+  if (!records.length) {
+    return <div>* Нажмите "Записать" для сохранения времени</div>
+  }
+
   const recordElements = records.map((record, index) => (
     <Record key={index} {...record} />
   ));

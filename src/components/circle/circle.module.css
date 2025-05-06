@@ -5,6 +5,7 @@
   border-radius: 50%;
   background-color: var(--circle-color);
   animation: GFG 5s infinite linear;
+  z-index: 5;
 }
 
 @keyframes GFG {

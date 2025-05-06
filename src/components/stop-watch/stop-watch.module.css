@@ -19,8 +19,6 @@
   border: 0.35rem solid var(--stopwatch-border-color);
   box-shadow: 0 0 8px 1px var(--stopwatch-border-color);
 
-  /* background-color: var(--stopwatch-bg-color); */
-
   background: linear-gradient(
     to bottom right,
     var(--stopwatch-bg-color-from) 15%,

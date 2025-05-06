@@ -34,8 +34,14 @@ const stopWatchSlice = createSlice({
     addRecord: (state) => {
       const { records, time, maxRecords } = state;
 
+      // Если массив достиг максимума - убираем первый элемент
       const updatedRecords = [...records].slice(-maxRecords + 1);
-      const newRecord = { position: updatedRecords.length + 1, time };
+
+      const length = updatedRecords.length;
+      const diff = updatedRecords[length - 1]
+        ? time - updatedRecords[length - 1].time
+        : 0;
+      const newRecord = { time, diff, position: length + 1 };
 
       state.records = [...updatedRecords, newRecord].map((e, i) => ({
         ...e,
