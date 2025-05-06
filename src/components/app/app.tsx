@@ -10,7 +10,7 @@ export const App: FC = () => {
   useStopwatchTimer();
 
   return (
-    <main className={s.wrapper}>
+    <main className={s.wrapper} data-theme='stopwatch-stop'>
       <Header />
 
       <section className={s.content}>

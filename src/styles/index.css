@@ -4,10 +4,5 @@
 
 body {
   font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  height: 100vh;
-  background: linear-gradient(to bottom right,
-      var(--background-color-to) 0%,
-      var(--background-color-center) 35%,
-      var(--background-color-center) 75%,
-      var(--background-color-from) 100%);
+  min-height: 100vh;
 }

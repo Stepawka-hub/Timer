@@ -19,7 +19,15 @@
   border: 0.35rem solid var(--stopwatch-border-color);
   box-shadow: 0 0 8px 1px var(--stopwatch-border-color);
 
-  background-color: var(--stopwatch-bg-color);
+  /* background-color: var(--stopwatch-bg-color); */
+
+  background: linear-gradient(
+    to bottom right,
+    var(--stopwatch-bg-color-from) 15%,
+    var(--stopwatch-bg-color-center) 50%,
+    var(--stopwatch-bg-color-to) 85%
+  );
+
   color: var(--secondary-text-color);
 }
 
@@ -73,7 +81,7 @@
 
   color: var(--secondary-text-color);
   background-color: var(--btn-color);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .4);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .4);
   transition: .25s ease-in;
 }
 
