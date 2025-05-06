@@ -4,13 +4,16 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { TimerPage } from "@pages";
 import { StopWatchPage } from "@pages";
 import s from "./app.module.css";
-import { useStopwatchTimer } from '@hooks/useStopwatchTimer';
+import { useStopwatchTimer } from "@hooks/useStopwatchTimer";
+import { useSelector } from "@store";
+import { getThemeSelector } from "@slices/app";
 
 export const App: FC = () => {
+  const theme = useSelector(getThemeSelector);
   useStopwatchTimer();
 
   return (
-    <main className={s.wrapper} data-theme='stopwatch-stop'>
+    <main className={s.wrapper} data-theme={theme}>
       <Header />
 
       <section className={s.content}>

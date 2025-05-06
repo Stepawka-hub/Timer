@@ -1,4 +1,4 @@
-import { TRecord } from 'src/types';
+import { TRecord } from "src/types";
 
 export type TStopWatchState = {
   time: number;
@@ -7,3 +7,9 @@ export type TStopWatchState = {
   records: TRecord[];
   maxRecords: number;
 };
+
+export type TAppState = {
+  theme: TTheme;
+};
+
+export type TTheme = "default" | "stopwatch-stop";

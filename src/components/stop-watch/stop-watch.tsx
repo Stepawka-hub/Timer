@@ -10,7 +10,7 @@ import {
 import { useSelector } from "@store";
 import { getFormattedTime } from "@utils/time";
 import clsx from "clsx";
-import { FC, useCallback } from "react";
+import { FC, useCallback, useEffect } from "react";
 import s from "./stop-watch.module.css";
 
 export const StopWatch: FC = () => {
@@ -18,7 +18,7 @@ export const StopWatch: FC = () => {
   const isPaused = useSelector(getIsPausedSelector);
   const time = useSelector(getTimeSelector);
 
-  const { start, setPause, reset, addRecord } = useActions();
+  const { start, setPause, reset, addRecord, setTheme } = useActions();
   const formattedTime = getFormattedTime(time);
 
   const startStopWatch = useCallback(() => {
@@ -28,14 +28,22 @@ export const StopWatch: FC = () => {
   const togglePause = useCallback(() => {
     if (isPaused) {
       setPause(false);
+      setTheme("default");
     } else {
       setPause(true);
+      setTheme("stopwatch-stop");
     }
-  }, [isPaused, setPause]);
+  }, [isPaused, setPause, setTheme]);
 
   const resetStopWatch = useCallback(() => {
     reset();
   }, [reset]);
+
+  useEffect(() => {
+    if (isPaused) {
+      setTheme("stopwatch-stop");
+    }
+  }, []);
 
   return (
     <div className={s.container}>

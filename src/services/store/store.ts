@@ -5,8 +5,10 @@ import {
   TypedUseSelectorHook,
 } from "react-redux";
 import { reducer as stopWatchReducer } from "@slices/stop-watch";
+import { reducer as appReducer } from "@slices/app";
 
 const rootReducer = combineReducers({
+  app: appReducer,
   stopWatch: stopWatchReducer,
 });
 
