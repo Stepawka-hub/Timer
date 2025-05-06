@@ -30,6 +30,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages": ["src/pages"],
       "@slices/*": ["src/services/slices/*"],
+      "@actions/*": ["src/services/actions/*"],
       "@selectors/*": ["src/services/selectors/*"],
       "@thunks/*": ["src/services/thunks/*"],
       "@utils/*": ["src/utils/*"],

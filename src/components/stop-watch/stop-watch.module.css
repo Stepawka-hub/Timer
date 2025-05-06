@@ -36,7 +36,7 @@
 }
 
 .stopWatch:focus:not(:active)::after {
-  animation: waves 1s ease-out;
+  animation: waves .85s ease-out;
 }
 
 .time {
@@ -69,17 +69,20 @@
   color: var(--secondary-color);
   background-color: var(--btn-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
-  transition:
-    opacity .2s ease-in,
-    transform .25s ease-in
+  transition: .25s ease-in;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
   transform: scale(1.02);
 }
 
-.button:active {
+.button:not(:disabled):active {
   opacity: 0.8;
+}
+
+.button:disabled {
+  background-color: var(--disabled-btn-color);
+  border-color: var(--disabled-btn-color);
 }
 
 @keyframes waves {

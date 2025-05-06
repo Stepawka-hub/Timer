@@ -1,73 +1,71 @@
 import { Circle } from "@components/circle";
-import { useInterval } from "@hooks/useInterval";
-import { STEP } from "@utils/constants";
-import { getFormattedTime } from "@utils/time";
-import { FC, useCallback, useState } from "react";
-import s from "./stop-watch.module.css";
 import { RecordsList } from "@components/records-list";
-import { useRecords } from "@hooks/useRecords";
+import { useActions } from "@hooks/useActions";
+
+import {
+  getIsPausedSelector,
+  getIsStartedSelector,
+  getTimeSelector,
+} from "@slices/stop-watch";
+import { useSelector } from "@store";
+import { getFormattedTime } from "@utils/time";
 import clsx from "clsx";
+import { FC, useCallback } from "react";
+import s from "./stop-watch.module.css";
 
 export const StopWatch: FC = () => {
-  const [isStart, setIsStart] = useState(false);
-  const [isPause, setIsPause] = useState(false);
-  const { records, addRecord, clearList } = useRecords();
+  const isStarted = useSelector(getIsStartedSelector);
+  const isPaused = useSelector(getIsPausedSelector);
+  const time = useSelector(getTimeSelector);
 
-  const { time, setTime, startInterval, stopInterval } = useInterval(STEP);
+  const { start, setPause, reset, addRecord } = useActions();
   const formattedTime = getFormattedTime(time);
 
   const startStopWatch = useCallback(() => {
-    setIsStart(true);
-    startInterval();
-  }, [startInterval]);
+    start();
+  }, [start]);
 
-  const pauseStopWatch = useCallback(() => {
-    if (isPause) {
-      setIsPause(false);
-      startInterval();
+  const togglePause = useCallback(() => {
+    if (isPaused) {
+      setPause(false);
     } else {
-      setIsPause(true);
-      stopInterval();
+      setPause(true);
     }
-  }, [isPause, stopInterval, startInterval]);
+  }, [isPaused, setPause]);
 
-  const stopStopWatch = useCallback(() => {
-    setIsPause(false);
-    setIsStart(false);
-    setTime(0);
-    clearList();
-    stopInterval();
-  }, [setTime, stopInterval, clearList]);
+  const resetStopWatch = useCallback(() => {
+    reset();
+  }, [reset]);
 
   return (
     <div className={s.container}>
       <div
         className={s.stopWatch}
-        onClick={isStart ? pauseStopWatch : startStopWatch}
+        onClick={isStarted ? togglePause : startStopWatch}
         tabIndex={0}
       >
         <span className={s.time}>{formattedTime}</span>
-        {isStart && <Circle isPause={isPause} />}
+        {isStarted && <Circle isPause={isPaused} />}
       </div>
 
-      <div className={clsx(s.controls, { [s.active]: isStart })}>
+      <div className={clsx(s.controls, { [s.active]: isStarted })}>
         <div className={s.buttons}>
           <button
             className={s.button}
-            disabled={!isStart}
-            onClick={() => addRecord(time)}
+            disabled={!isStarted}
+            onClick={() => addRecord()}
           >
             Записать
           </button>
           <button
             className={s.button}
-            disabled={!isStart}
-            onClick={stopStopWatch}
+            disabled={!isStarted}
+            onClick={resetStopWatch}
           >
             Сбросить
           </button>
         </div>
-        <RecordsList records={records} />
+        <RecordsList />
       </div>
     </div>
   );

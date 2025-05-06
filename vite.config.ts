@@ -11,6 +11,7 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "src/hooks"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@slices": path.resolve(__dirname, "src/services/slices"),
+      "@actions": path.resolve(__dirname, "src/services/actions"),
       "@selectors": path.resolve(__dirname, "src/services/selectors"),
       "@thunks": path.resolve(__dirname, "src/services/thunks"),
       "@utils": path.resolve(__dirname, "src/utils"),

@@ -1,4 +1,4 @@
-export type TInterval = undefined | ReturnType<typeof setInterval>;
+export type TTimeout = undefined | ReturnType<typeof setTimeout>;
 
 export type TRecord = {
   position: number;
