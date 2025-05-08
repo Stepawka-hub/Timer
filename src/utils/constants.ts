@@ -1,1 +1,1 @@
-export const STEP = 100;
+export const INTERVAL = 100;

@@ -1,5 +1,6 @@
 import { ActionCreatorWithoutPayload, Selector } from "@reduxjs/toolkit";
 import { RootState, useSelector } from "@store";
+import { INTERVAL } from '@utils/constants';
 import { useCallback, useEffect, useRef } from "react";
 import { TTimeout } from "src/types";
 
@@ -22,7 +23,7 @@ export const useTimer = ({
     if (!isStarted || isPaused) return;
 
     timerTick();
-    timeoutRef.current = setTimeout(startTimer, 100);
+    timeoutRef.current = setTimeout(startTimer, INTERVAL);
   }, [isStarted, isPaused, timerTick]);
 
   useEffect(() => {

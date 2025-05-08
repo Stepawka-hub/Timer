@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TStopWatchState } from "./types/types";
+import { INTERVAL } from "@utils/constants";
 
 const initialState: TStopWatchState = {
   time: 0,
@@ -27,9 +28,8 @@ const stopWatchSlice = createSlice({
       state.records = [];
     },
     stopWatchTick: (state) => {
-      if (state.isStarted && !state.isPaused) {
-        state.time += 100;
-      }
+      if (!state.isStarted || state.isPaused) return;
+      state.time += INTERVAL;
     },
     addRecord: (state) => {
       const { records, time, maxRecords } = state;
