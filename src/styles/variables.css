@@ -6,15 +6,18 @@
   --header-shadow-color: rgba(62, 139, 253, 0.75);
   --link-color: #4b84ff;
   --link-bg-color: #fff;
+  --link-notify: #fe5d67;
 
-  --stopwatch-bg-color-to: #98b7ff;
-  --stopwatch-bg-color-center: #87c9ff;
-  --stopwatch-bg-color-from: #98b7ff;
-  --stopwatch-border-color: #4b84ff;
+  --time-circle-bg-color-to: #87abff;
+  --time-circle-bg-color-center: #87c9ff;
+  --time-circle-bg-color-from: #87abff;
+  --time-circle-border-color: #4b84ff;
   --waves-color: rgba(91, 143, 255, 0.5);
   --circle-color: #4b84ff;
 
   --record-diff-color: #4b84ff;
+
+  --timer-input-border-color: #4b84ff;
 
   --btn-color: #4b84ff;
   --disabled-btn-color: #ececec;
@@ -22,7 +25,7 @@
   --disabled-text-color: #707070;
 }
 
-[data-theme="stopwatch-stop"] {
+[data-theme="paused"] {
   --primary-text-color: #000;
   --secondary-text-color: #fff;
 
@@ -31,16 +34,41 @@
   --link-color: #fe8e44;
   --link-bg-color: #fff;
 
-  --stopwatch-bg-color-to: #ffb76f;
-  --stopwatch-bg-color-center: #ffd16f;
-  --stopwatch-bg-color-from: #ffb76f;
-  --stopwatch-border-color: #fe8e44;
+  --time-circle-bg-color-to: #ffaf5f;
+  --time-circle-bg-color-center: #ffd16f;
+  --time-circle-bg-color-from: #ffaf5f;
+  --time-circle-border-color: #fe8e44;
   --waves-color: rgba(255, 189, 35, 0.5);
   --circle-color: #fe8e44;
 
   --record-diff-color: #ff954f;
 
+  --timer-input-border-color: #ff954f;
+
   --btn-color: #fe8e44;
+  --disabled-btn-color: #ececec;
+  --disabled-border-color: #ececec;
+  --disabled-text-color: #707070;
+}
+
+[data-theme="finished"] {
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
+
+  --header-color: #fe5d67;
+  --header-shadow-color: #fe5d67;
+  --link-color: #f43854;
+  --link-bg-color: #fff;
+
+  --time-circle-bg-color-to: #fd4e56;
+  --time-circle-bg-color-center: #ff727b;
+  --time-circle-bg-color-from: #fd4e56;
+  --time-circle-border-color: rgb(255, 47, 47);
+  --waves-color: rgba(255, 57, 35, 0.5);
+
+  --timer-input-border-color: #ff414b;
+
+  --btn-color: #fe5d67;
   --disabled-btn-color: #ececec;
   --disabled-border-color: #ececec;
   --disabled-text-color: #707070;

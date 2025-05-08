@@ -5,4 +5,5 @@
 body {
   font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   min-height: 100vh;
+  font-variant-numeric: tabular-nums;
 }

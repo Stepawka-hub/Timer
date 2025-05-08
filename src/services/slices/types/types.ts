@@ -16,7 +16,8 @@ export type TStopWatchState = TBaseTimeState & {
 };
 
 export type TTimerState = TBaseTimeState & {
+  isFinished: boolean;
   targetTime: number;
 };
 
-export type TTheme = "default" | "stopwatch-stop";
+export type TTheme = "default" | "paused" | "finished";

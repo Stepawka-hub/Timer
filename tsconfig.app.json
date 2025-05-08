@@ -25,6 +25,7 @@
     /* paths */
     "baseUrl": ".",
     "paths": {
+      "@sounds/*": ["src/assets/sounds/*"],
       "@images/*": ["src/assets/images/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],

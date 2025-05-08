@@ -33,3 +33,18 @@
 .link_active {
   color: var(--link-color);
 }
+
+.link_notify {
+  color: var(--secondary-text-color);
+  background-color: var(--link-notify);
+  animation: help 1s ease-in-out infinite alternate;
+}
+
+@keyframes help {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}

@@ -6,7 +6,8 @@ const initialState: TTimerState = {
   time: 0,
   isStarted: false,
   isPaused: false,
-  targetTime: 0,
+  isFinished: false,
+  targetTime: 300005,
 };
 
 const timerSlice = createSlice({
@@ -16,7 +17,7 @@ const timerSlice = createSlice({
     timerStart: (state) => {
       state.isStarted = true;
       state.isPaused = false;
-      state.targetTime = 3000;
+      state.isFinished = false;
       state.time = state.targetTime;
     },
     timerSetPause: (state, { payload }: PayloadAction<boolean>) => {
@@ -26,28 +27,41 @@ const timerSlice = createSlice({
       state.time = 0;
       state.isStarted = false;
       state.isPaused = false;
+      state.isFinished = false;
     },
     timerTick: (state) => {
       if (!state.isStarted || state.isPaused) return;
 
       if (state.time <= INTERVAL) {
         state.time = 0;
-        state.isStarted = false;
         state.isPaused = false;
-        return;
+        state.isFinished = true;
+      } else {
+        state.time -= INTERVAL;
       }
-
-      state.time -= INTERVAL;
+    },
+    setTargetTime: (state, { payload }: PayloadAction<number>) => {
+      state.targetTime = payload;
+    },
+    addTargetTime: (state, { payload }: PayloadAction<number>) => {
+      state.targetTime += payload;
     },
   },
   selectors: {
     getTimeSelector: (state) => state.time,
+    getTargetTimeSelector: (state) => state.targetTime,
     getIsStartedSelector: (state) => state.isStarted,
     getIsPausedSelector: (state) => state.isPaused,
+    getIsFinishedSelector: (state) => state.isFinished,
   },
 });
 
 export const reducer = timerSlice.reducer;
 export const { actions } = timerSlice;
-export const { getIsPausedSelector, getIsStartedSelector, getTimeSelector } =
-  timerSlice.selectors;
+export const {
+  getIsPausedSelector,
+  getIsStartedSelector,
+  getTimeSelector,
+  getTargetTimeSelector,
+  getIsFinishedSelector,
+} = timerSlice.selectors;

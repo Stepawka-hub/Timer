@@ -1,17 +1,8 @@
-import { FC, useEffect } from "react";
-import { useActions } from "@hooks/useActions";
 import { Timer } from "@components/timer";
+import { FC } from "react";
 
-export const TimerPage: FC = () => {
-  const { setTheme } = useActions();
-
-  useEffect(() => {
-    setTheme("default");
-  }, []);
-
-  return (
-    <section>
-      <Timer />
-    </section>
-  );
-};
+export const TimerPage: FC = () => (
+  <section>
+    <Timer />
+  </section>
+);
