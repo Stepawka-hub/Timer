@@ -12,7 +12,7 @@ import {
 import { useSelector } from "@store";
 import { formatTimeHHMMSS } from "@utils/time";
 import clsx from "clsx";
-import { FC, useCallback } from "react";
+import { FC, useCallback, useMemo } from "react";
 import s from "./timer.module.css";
 
 export const Timer: FC = () => {
@@ -22,7 +22,9 @@ export const Timer: FC = () => {
   const isFinished = useSelector(getIsFinishedSelector);
 
   const { timerStart, timerSetPause, timerReset } = useActions();
-  const formattedTime = formatTimeHHMMSS(time);
+
+  const seconds = Math.floor(time / 1000);
+  const formattedTime = useMemo(() => formatTimeHHMMSS(seconds), [seconds]);
 
   useThemeControl(isPaused, isFinished);
 
@@ -38,13 +40,18 @@ export const Timer: FC = () => {
     timerReset();
   }, [timerReset]);
 
+  const children = useMemo(
+    () => <span className={s.time}>{formattedTime}</span>,
+    [formattedTime]
+  );
+
   return (
     <div className={s.container}>
       {!isStarted ? (
         <TimerSetup />
       ) : (
         <TimeCircle onClick={isFinished ? reset : togglePause}>
-          <span className={s.time}>{formattedTime}</span>
+          {children}
         </TimeCircle>
       )}
 

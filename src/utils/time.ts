@@ -1,10 +1,43 @@
-export const getTimeParts = (ms: number) => {
-  const totalSeconds = ms / 1000;
+export const getTimeParts = (time: number, byMs = false) => {
+  const totalSeconds = byMs ? time / 1000 : time;
 
   const seconds = totalSeconds % 60;
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const hours = Math.floor(totalSeconds / 3600);
   return { hours, minutes, seconds };
+};
+
+// hh:mm:ss.ms || mm:ss.ms || ss.ms
+export const optionalFormatTime = (time: number, byMs = false) => {
+  const { hours, minutes, seconds } = getTimeParts(time, byMs);
+
+  const hoursStr = hours ? `${hours}:` : "";
+  const minutesStr = minutes ? `${minutes}:` : "";
+  const secondsStr = seconds.toFixed(1);
+
+  return hoursStr + minutesStr + secondsStr;
+};
+
+// hh:mm:ss
+export const formatTimeHHMMSS = (time: number, byMs = false) => {
+  const { hours, minutes, seconds } = getTimeParts(time, byMs);
+
+  const hoursStr = toTimeString(hours);
+  const minutesStr = toTimeString(minutes);
+  const secondsStr = toTimeString(Math.floor(seconds));
+
+  return `${hoursStr}:${minutesStr}:${secondsStr}`;
+};
+
+// hh:mm:ss
+export const formatTimeMMSSMS = (ms: number) => {
+  const { minutes, seconds } = getTimeParts(ms, true);
+
+  const minutesStr = toTimeString(minutes);
+  const secondsStr = toTimeString(Math.floor(seconds));
+  const msStr = (ms % 1000)/100;
+
+  return `${minutesStr}:${secondsStr}.${msStr}`;
 };
 
 export const convertTimeToMS = (
@@ -18,33 +51,3 @@ export const convertTimeToMS = (
 
 export const toTimeString = (value: number): string =>
   value.toString().padStart(2, "0");
-
-export const getFormattedTime = (ms: number) => {
-  const { hours, minutes, seconds } = getTimeParts(ms);
-
-  const hoursStr = hours ? `${hours}:` : "";
-  const minutesStr = minutes ? `${minutes}:` : "";
-  const secondsStr = seconds.toFixed(1);
-
-  return hoursStr + minutesStr + secondsStr;
-};
-
-export const formatTimeHHMMSS = (ms: number) => {
-  const { hours, minutes, seconds } = getTimeParts(ms);
-
-  const hoursStr = hours.toString().padStart(2, "0");
-  const minutesStr = minutes.toString().padStart(2, "0");
-  const secondsStr = Math.floor(seconds).toString().padStart(2, "0");
-
-  return `${hoursStr}:${minutesStr}:${secondsStr}`;
-};
-
-export const formatTimeHHMMSSMS = (ms: number) => {
-  const { hours, minutes, seconds } = getTimeParts(ms);
-
-  const hoursStr = hours.toString().padStart(2, "0");
-  const minutesStr = minutes.toString().padStart(2, "0");
-  const secondsStr = Math.round(seconds).toString().padStart(2, "0");
-
-  return `${hoursStr}:${minutesStr}:${secondsStr}`;
-};

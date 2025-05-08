@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useActions } from "@hooks/useActions";
 import { useTimeInput } from "@hooks/useTimeInput";
 import { getTargetTimeSelector } from "@slices/timer";
@@ -33,7 +34,7 @@ export const TimerSetup: FC = memo(() => {
   const handleAddTime = (ms: number) => () => addTargetTime(ms);
 
   useEffect(() => {
-    const { hours, minutes, seconds } = getTimeParts(targetTime);
+    const { hours, minutes, seconds } = getTimeParts(targetTime, true);
     hoursInput.setValue(toTimeString(hours));
     minutesInput.setValue(toTimeString(minutes));
     secondsInput.setValue(toTimeString(Math.round(seconds)));

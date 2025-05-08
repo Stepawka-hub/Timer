@@ -7,7 +7,7 @@ const initialState: TTimerState = {
   isStarted: false,
   isPaused: false,
   isFinished: false,
-  targetTime: 300000,
+  targetTime: 300005,
 };
 
 const timerSlice = createSlice({

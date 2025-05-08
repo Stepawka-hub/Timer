@@ -1,7 +1,6 @@
 import { Circle } from "@components/circle";
 import { RecordsList } from "@components/records-list";
 import { useActions } from "@hooks/useActions";
-
 import { useThemeControl } from "@hooks/useThemeControl";
 import {
   getIsPausedSelector,
@@ -9,11 +8,11 @@ import {
   getTimeSelector,
 } from "@slices/stop-watch";
 import { useSelector } from "@store";
-import { getFormattedTime } from "@utils/time";
-import clsx from "clsx";
+import { optionalFormatTime } from "@utils/time";
 import { FC, useCallback } from "react";
-import s from "./stop-watch.module.css";
 import { TimeCircle } from "@components/time-circle";
+import clsx from "clsx";
+import s from "./stop-watch.module.css";
 
 export const StopWatch: FC = () => {
   const isStarted = useSelector(getIsStartedSelector);
@@ -22,7 +21,7 @@ export const StopWatch: FC = () => {
 
   const { stopWatchStart, stopWatchSetPause, stopWatchReset, addRecord } =
     useActions();
-  const formattedTime = getFormattedTime(time);
+  const formattedTime = optionalFormatTime(time, true);
 
   useThemeControl(isPaused);
 
