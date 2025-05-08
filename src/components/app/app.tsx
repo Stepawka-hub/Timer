@@ -1,18 +1,34 @@
-import { FC } from "react";
 import { Header } from "@components/header";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { TimerPage } from "@pages";
-import { StopWatchPage } from "@pages";
-import s from "./app.module.css";
-import { useStopwatchTimer } from "@hooks/useStopwatchTimer";
-import { useSelector } from "@store";
+import { useActions } from "@hooks/useActions";
+import { useTimer } from "@hooks/useTimer";
+import { StopWatchPage, TimerPage } from "@pages";
 import { getThemeSelector } from "@slices/app";
-import { useTimer } from '@hooks/useTimer';
+import {
+  getIsPausedSelector as getIsStopwatchPaused,
+  getIsStartedSelector as getIsStopwatchStarted,
+} from "@slices/stop-watch";
+import {
+  getIsPausedSelector as getIsTimerPaused,
+  getIsStartedSelector as getIsTimerStarted,
+} from "@slices/timer";
+import { useSelector } from "@store";
+import { FC } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import s from "./app.module.css";
 
 export const App: FC = () => {
   const theme = useSelector(getThemeSelector);
-  useStopwatchTimer();
-  useTimer();
+  const { stopWatchTick, timerTick } = useActions();
+  useTimer({
+    timerTick: stopWatchTick,
+    getIsStarted: getIsStopwatchStarted,
+    getIsPaused: getIsStopwatchPaused,
+  });
+  useTimer({
+    timerTick: timerTick,
+    getIsStarted: getIsTimerStarted,
+    getIsPaused: getIsTimerPaused,
+  });
 
   return (
     <main className={s.wrapper} data-theme={theme}>

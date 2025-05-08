@@ -1,13 +1,21 @@
-import { useSelector } from "@store";
-import { useActions } from "./useActions";
-import { getIsPausedSelector, getIsStartedSelector } from "@slices/timer";
+import { ActionCreatorWithoutPayload, Selector } from "@reduxjs/toolkit";
+import { RootState, useSelector } from "@store";
 import { useCallback, useEffect, useRef } from "react";
 import { TTimeout } from "src/types";
 
-export const useTimer = () => {
-  const { timerTick } = useActions();
-  const isStarted = useSelector(getIsStartedSelector);
-  const isPaused = useSelector(getIsPausedSelector);
+type TUseTimerArgs = {
+  timerTick: ActionCreatorWithoutPayload<string>;
+  getIsStarted: Selector<RootState, boolean>;
+  getIsPaused: Selector<RootState, boolean>;
+};
+
+export const useTimer = ({
+  timerTick,
+  getIsStarted,
+  getIsPaused,
+}: TUseTimerArgs) => {
+  const isStarted = useSelector(getIsStarted);
+  const isPaused = useSelector(getIsPaused);
   const timeoutRef = useRef<TTimeout>(null);
 
   const startTimer = useCallback(() => {
