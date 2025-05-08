@@ -2,9 +2,8 @@
   display: flex;
   justify-content: space-around;
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
   background-color: var(--header-color);
-  border-radius: 0 0 1.5rem 1.5rem;
+  box-shadow: 0 2px 4px var(--header-shadow-color);
 }
 
 .link {
@@ -15,18 +14,22 @@
   text-align: center;
   text-decoration: none;
 
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--link-color);
+  color: var(--primary-text-color);
   background-color: var(--link-bg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
   transition: all 0.2s ease-in;
 }
 
-.link:hover {
-  opacity: 0.9;
-  transform: scale(1.1);
+.link:not(.link_active):hover {
+  transform: scale(1.035);
 }
 
-.link:active {
+.link:not(.link_active):active {
   opacity: 0.7;
+}
+
+.link_active {
+  color: var(--link-color);
 }

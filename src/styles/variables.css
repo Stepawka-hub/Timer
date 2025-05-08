@@ -1,33 +1,47 @@
 :root {
-  --primary-color: #000;
-  --secondary-color: #fff;
-  --theme-primary-color: #4b84ff;
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
 
   --header-color: #4b84ff;
-  --link-color: #fff;
-  --link-bg-color: #3761ec;
+  --header-shadow-color: rgba(62, 139, 253, 0.75);
+  --link-color: #4b84ff;
+  --link-bg-color: #fff;
 
-  --red-color: #fa6363;
-  --success-color: #4abe78;
-  --dark-color: #1d1d1d;
+  --stopwatch-bg-color-to: #98b7ff;
+  --stopwatch-bg-color-center: #87c9ff;
+  --stopwatch-bg-color-from: #98b7ff;
+  --stopwatch-border-color: #4b84ff;
+  --waves-color: rgba(91, 143, 255, 0.5);
+  --circle-color: #4b84ff;
 
-  --disabled-btn-color: #858484;
+  --record-diff-color: #4b84ff;
 
-  --separator-color: #F2F2F2;
+  --btn-color: #4b84ff;
+  --disabled-btn-color: #ececec;
+  --disabled-border-color: #ececec;
+  --disabled-text-color: #707070;
+}
 
-  --modal-bg-color: #FFF;
-  --modal-btn-color: #333333;
-  --modal-box-shadow: #EFEFEF;
+[data-theme="stopwatch-stop"] {
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
 
-  --custom-checkbox-color: #4DD599;
-  --custom-checkbox-hover-color: #E8E8E8;
+  --header-color: #ff954f;
+  --header-shadow-color: #fe8e44;
+  --link-color: #fe8e44;
+  --link-bg-color: #fff;
 
-  --edit-btn-bg-hover: #1f1f1f;
+  --stopwatch-bg-color-to: #ffb76f;
+  --stopwatch-bg-color-center: #ffd16f;
+  --stopwatch-bg-color-from: #ffb76f;
+  --stopwatch-border-color: #fe8e44;
+  --waves-color: rgba(255, 189, 35, 0.5);
+  --circle-color: #fe8e44;
 
-  --toast-bg-color: #FFF;
-  --toast-btn-color: #ff5947;
-  --toast-box-shadow: #ffddad;
-  --toast-success-color: #32bea6;
-  --toast-error-color: #e04f5f;
+  --record-diff-color: #ff954f;
 
+  --btn-color: #fe8e44;
+  --disabled-btn-color: #ececec;
+  --disabled-border-color: #ececec;
+  --disabled-text-color: #707070;
 }

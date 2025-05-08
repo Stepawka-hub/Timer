@@ -26,16 +26,15 @@
     "baseUrl": ".",
     "paths": {
       "@images/*": ["src/assets/images/*"],
-      "@ui/*": ["src/components/ui/*"],
-      "@ui-pages": ["src/components/ui/pages"],
       "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@pages": ["src/pages"],
       "@slices/*": ["src/services/slices/*"],
+      "@actions/*": ["src/services/actions/*"],
       "@selectors/*": ["src/services/selectors/*"],
       "@thunks/*": ["src/services/thunks/*"],
       "@utils/*": ["src/utils/*"],
-      "@store": ["src/services/store/store.ts"],
-      "@api": ["src/utils/api/api.ts"]
+      "@store": ["src/services/store/store.ts"]
     }
   },
   "include": ["src"]

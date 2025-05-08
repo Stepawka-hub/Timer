@@ -4,10 +4,14 @@ import {
   useSelector as selectorHook,
   TypedUseSelectorHook,
 } from "react-redux";
+import { reducer as stopWatchReducer } from "@slices/stop-watch";
+import { reducer as timerReducer } from "@slices/timer";
 import { reducer as appReducer } from "@slices/app";
 
 const rootReducer = combineReducers({
   app: appReducer,
+  stopWatch: stopWatchReducer,
+  timer: timerReducer,
 });
 
 export const store = configureStore({
