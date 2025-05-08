@@ -34,13 +34,11 @@ const timerSlice = createSlice({
 
       if (state.time <= INTERVAL) {
         state.time = 0;
-        state.isStarted = false;
         state.isPaused = false;
         state.isFinished = true;
-        return;
+      } else {
+        state.time -= INTERVAL;
       }
-
-      state.time -= INTERVAL;
     },
     setTargetTime: (state, { payload }: PayloadAction<number>) => {
       state.targetTime = payload;

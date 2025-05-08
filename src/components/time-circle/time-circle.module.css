@@ -37,3 +37,20 @@
 .timeCircle:focus:not(:active)::after {
   animation: waves .85s ease-out;
 }
+
+@keyframes waves {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+
+  20% {
+    transform: scale(35, 35);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(60, 60);
+  }
+}

@@ -42,6 +42,8 @@
 
   --record-diff-color: #ff954f;
 
+  --timer-input-border-color: #ff954f;
+
   --btn-color: #fe8e44;
   --disabled-btn-color: #ececec;
   --disabled-border-color: #ececec;
@@ -62,6 +64,8 @@
   --time-circle-bg-color-from: #ff414b;
   --time-circle-border-color: rgb(255, 47, 47);
   --waves-color: rgba(255, 57, 35, 0.5);
+
+  --timer-input-border-color: #ff414b;
 
   --btn-color: #fe5d67;
   --disabled-btn-color: #ececec;

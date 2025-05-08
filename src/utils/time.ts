@@ -7,6 +7,18 @@ export const getTimeParts = (ms: number) => {
   return { hours, minutes, seconds };
 };
 
+export const convertTimeToMS = (
+  seconds: number,
+  minutes: number,
+  hours: number
+) =>
+  (hours || 0) * 3600 * 1000 +
+  (minutes || 0) * 60 * 1000 +
+  (seconds || 0) * 1000;
+
+export const toTimeString = (value: number): string =>
+  value.toString().padStart(2, "0");
+
 export const getFormattedTime = (ms: number) => {
   const { hours, minutes, seconds } = getTimeParts(ms);
 
