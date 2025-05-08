@@ -11,8 +11,8 @@ import {
 } from "@slices/timer";
 import { useSelector } from "@store";
 import { formatTimeHHMMSS } from "@utils/time";
-import clsx from "clsx";
 import { FC, useCallback, useMemo } from "react";
+import clsx from "clsx";
 import s from "./timer.module.css";
 
 export const Timer: FC = () => {

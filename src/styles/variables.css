@@ -6,10 +6,11 @@
   --header-shadow-color: rgba(62, 139, 253, 0.75);
   --link-color: #4b84ff;
   --link-bg-color: #fff;
+  --link-notify: #fe5d67;
 
-  --time-circle-bg-color-to: #98b7ff;
+  --time-circle-bg-color-to: #87abff;
   --time-circle-bg-color-center: #87c9ff;
-  --time-circle-bg-color-from: #98b7ff;
+  --time-circle-bg-color-from: #87abff;
   --time-circle-border-color: #4b84ff;
   --waves-color: rgba(91, 143, 255, 0.5);
   --circle-color: #4b84ff;
@@ -33,9 +34,9 @@
   --link-color: #fe8e44;
   --link-bg-color: #fff;
 
-  --time-circle-bg-color-to: #ffb76f;
+  --time-circle-bg-color-to: #ffaf5f;
   --time-circle-bg-color-center: #ffd16f;
-  --time-circle-bg-color-from: #ffb76f;
+  --time-circle-bg-color-from: #ffaf5f;
   --time-circle-border-color: #fe8e44;
   --waves-color: rgba(255, 189, 35, 0.5);
   --circle-color: #fe8e44;
@@ -59,9 +60,9 @@
   --link-color: #f43854;
   --link-bg-color: #fff;
 
-  --time-circle-bg-color-to: #ff414b;
+  --time-circle-bg-color-to: #fd4e56;
   --time-circle-bg-color-center: #ff727b;
-  --time-circle-bg-color-from: #ff414b;
+  --time-circle-bg-color-from: #fd4e56;
   --time-circle-border-color: rgb(255, 47, 47);
   --waves-color: rgba(255, 57, 35, 0.5);
 

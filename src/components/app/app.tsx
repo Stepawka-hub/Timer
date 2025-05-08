@@ -15,6 +15,7 @@ import { useSelector } from "@store";
 import { FC } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import s from "./app.module.css";
+import { SoundController } from "@components/sound-controller/sound-controller";
 
 export const App: FC = () => {
   const theme = useSelector(getThemeSelector);
@@ -41,6 +42,8 @@ export const App: FC = () => {
           <Route path="/stopwatch" element={<StopWatchPage />} />
         </Routes>
       </section>
+
+      <SoundController />
     </main>
   );
 };
