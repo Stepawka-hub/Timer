@@ -13,6 +13,7 @@ import { getFormattedTime } from "@utils/time";
 import clsx from "clsx";
 import { FC, useCallback } from "react";
 import s from "./timer.module.css";
+import { TimeCircle } from "@components/time-circle";
 
 export const Timer: FC = () => {
   const time = useSelector(getTimeSelector);
@@ -42,13 +43,9 @@ export const Timer: FC = () => {
       {!isStarted ? (
         <TimerSetup />
       ) : (
-        <div
-          className={s.timer}
-          onClick={isStarted ? togglePause : start}
-          tabIndex={0}
-        >
+        <TimeCircle onClick={togglePause}>
           <span className={s.time}>{formattedTime}</span>
-        </div>
+        </TimeCircle>
       )}
 
       <div className={clsx(s.controls, { [s.active]: isStarted })}>

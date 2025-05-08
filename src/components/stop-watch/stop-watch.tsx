@@ -2,7 +2,7 @@ import { Circle } from "@components/circle";
 import { RecordsList } from "@components/records-list";
 import { useActions } from "@hooks/useActions";
 
-import { useThemeControl } from '@hooks/useThemeControl';
+import { useThemeControl } from "@hooks/useThemeControl";
 import {
   getIsPausedSelector,
   getIsStartedSelector,
@@ -13,6 +13,7 @@ import { getFormattedTime } from "@utils/time";
 import clsx from "clsx";
 import { FC, useCallback } from "react";
 import s from "./stop-watch.module.css";
+import { TimeCircle } from "@components/time-circle";
 
 export const StopWatch: FC = () => {
   const isStarted = useSelector(getIsStartedSelector);
@@ -22,7 +23,7 @@ export const StopWatch: FC = () => {
   const { stopWatchStart, stopWatchSetPause, stopWatchReset, addRecord } =
     useActions();
   const formattedTime = getFormattedTime(time);
-  
+
   useThemeControl(isPaused);
 
   const startStopWatch = useCallback(() => {
@@ -39,14 +40,10 @@ export const StopWatch: FC = () => {
 
   return (
     <div className={s.container}>
-      <div
-        className={s.stopWatch}
-        onClick={isStarted ? togglePause : startStopWatch}
-        tabIndex={0}
-      >
+      <TimeCircle onClick={isStarted ? togglePause : startStopWatch}>
         <span className={s.time}>{formattedTime}</span>
         {isStarted && <Circle isPause={isPaused} />}
-      </div>
+      </TimeCircle>
 
       <div className={clsx(s.controls, { [s.active]: isStarted })}>
         <div className={s.buttons}>

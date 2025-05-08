@@ -5,48 +5,6 @@
   padding-top: 7rem;
 }
 
-.stopWatch {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-
-  width: 25rem;
-  height: 25rem;
-  border-radius: 50%;
-  border: 0.35rem solid var(--stopwatch-border-color);
-  box-shadow: 0 0 8px 1px var(--stopwatch-border-color);
-
-  background: linear-gradient(
-    to bottom right,
-    var(--stopwatch-bg-color-from) 15%,
-    var(--stopwatch-bg-color-center) 50%,
-    var(--stopwatch-bg-color-to) 85%
-  );
-
-  color: var(--secondary-text-color);
-}
-
-.stopWatch:after {
-  content: '';
-  position: absolute;
-  top: 49%;
-  left: 49%;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-
-  opacity: 0;
-  background-color: var(--waves-color);
-  transform: scale(1, 1);
-}
-
-.stopWatch:focus:not(:active)::after {
-  animation: waves .85s ease-out;
-}
-
 .time {
   font-size: 2.85rem;
   font-weight: 600;

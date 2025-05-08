@@ -7,10 +7,10 @@
   --link-color: #4b84ff;
   --link-bg-color: #fff;
 
-  --stopwatch-bg-color-to: #98b7ff;
-  --stopwatch-bg-color-center: #87c9ff;
-  --stopwatch-bg-color-from: #98b7ff;
-  --stopwatch-border-color: #4b84ff;
+  --time-circle-bg-color-to: #98b7ff;
+  --time-circle-bg-color-center: #87c9ff;
+  --time-circle-bg-color-from: #98b7ff;
+  --time-circle-border-color: #4b84ff;
   --waves-color: rgba(91, 143, 255, 0.5);
   --circle-color: #4b84ff;
 
@@ -33,10 +33,10 @@
   --link-color: #fe8e44;
   --link-bg-color: #fff;
 
-  --stopwatch-bg-color-to: #ffb76f;
-  --stopwatch-bg-color-center: #ffd16f;
-  --stopwatch-bg-color-from: #ffb76f;
-  --stopwatch-border-color: #fe8e44;
+  --time-circle-bg-color-to: #ffb76f;
+  --time-circle-bg-color-center: #ffd16f;
+  --time-circle-bg-color-from: #ffb76f;
+  --time-circle-border-color: #fe8e44;
   --waves-color: rgba(255, 189, 35, 0.5);
   --circle-color: #fe8e44;
 
@@ -57,10 +57,10 @@
   --link-color: #f43854;
   --link-bg-color: #fff;
 
-  --stopwatch-bg-color-to: #ff414b;
-  --stopwatch-bg-color-center: #ff727b;
-  --stopwatch-bg-color-from: #ff414b;
-  --stopwatch-border-color: rgb(255, 47, 47);
+  --time-circle-bg-color-to: #ff414b;
+  --time-circle-bg-color-center: #ff727b;
+  --time-circle-bg-color-from: #ff414b;
+  --time-circle-border-color: rgb(255, 47, 47);
   --waves-color: rgba(255, 57, 35, 0.5);
 
   --btn-color: #fe5d67;
