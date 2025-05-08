@@ -6,6 +6,7 @@ const initialState: TTimerState = {
   time: 0,
   isStarted: false,
   isPaused: false,
+  isFinished: false,
   targetTime: 300000,
 };
 
@@ -16,6 +17,7 @@ const timerSlice = createSlice({
     timerStart: (state) => {
       state.isStarted = true;
       state.isPaused = false;
+      state.isFinished = false;
       state.time = state.targetTime;
     },
     timerSetPause: (state, { payload }: PayloadAction<boolean>) => {
@@ -25,6 +27,7 @@ const timerSlice = createSlice({
       state.time = 0;
       state.isStarted = false;
       state.isPaused = false;
+      state.isFinished = false;
     },
     timerTick: (state) => {
       if (!state.isStarted || state.isPaused) return;
@@ -33,6 +36,7 @@ const timerSlice = createSlice({
         state.time = 0;
         state.isStarted = false;
         state.isPaused = false;
+        state.isFinished = true;
         return;
       }
 
@@ -50,6 +54,7 @@ const timerSlice = createSlice({
     getTargetTimeSelector: (state) => state.targetTime,
     getIsStartedSelector: (state) => state.isStarted,
     getIsPausedSelector: (state) => state.isPaused,
+    getIsFinishedSelector: (state) => state.isFinished,
   },
 });
 
@@ -60,4 +65,5 @@ export const {
   getIsStartedSelector,
   getTimeSelector,
   getTargetTimeSelector,
+  getIsFinishedSelector,
 } = timerSlice.selectors;

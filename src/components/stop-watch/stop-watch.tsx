@@ -2,6 +2,7 @@ import { Circle } from "@components/circle";
 import { RecordsList } from "@components/records-list";
 import { useActions } from "@hooks/useActions";
 
+import { useThemeControl } from '@hooks/useThemeControl';
 import {
   getIsPausedSelector,
   getIsStartedSelector,
@@ -10,7 +11,7 @@ import {
 import { useSelector } from "@store";
 import { getFormattedTime } from "@utils/time";
 import clsx from "clsx";
-import { FC, useCallback, useEffect } from "react";
+import { FC, useCallback } from "react";
 import s from "./stop-watch.module.css";
 
 export const StopWatch: FC = () => {
@@ -18,39 +19,23 @@ export const StopWatch: FC = () => {
   const isPaused = useSelector(getIsPausedSelector);
   const time = useSelector(getTimeSelector);
 
-  const {
-    stopWatchStart,
-    stopWatchSetPause,
-    stopWatchReset,
-    addRecord,
-    setTheme,
-  } = useActions();
+  const { stopWatchStart, stopWatchSetPause, stopWatchReset, addRecord } =
+    useActions();
   const formattedTime = getFormattedTime(time);
+  
+  useThemeControl(isPaused);
 
   const startStopWatch = useCallback(() => {
     stopWatchStart();
   }, [stopWatchStart]);
 
   const togglePause = useCallback(() => {
-    if (isPaused) {
-      stopWatchSetPause(false);
-      setTheme("default");
-    } else {
-      stopWatchSetPause(true);
-      setTheme("stopwatch-stop");
-    }
-  }, [isPaused, stopWatchSetPause, setTheme]);
+    stopWatchSetPause(!isPaused);
+  }, [isPaused, stopWatchSetPause]);
 
   const resetStopWatch = useCallback(() => {
     stopWatchReset();
-    setTheme("default");
-  }, [stopWatchReset, setTheme]);
-
-  useEffect(() => {
-    if (isPaused) {
-      setTheme("stopwatch-stop");
-    }
-  }, []);
+  }, [stopWatchReset]);
 
   return (
     <div className={s.container}>

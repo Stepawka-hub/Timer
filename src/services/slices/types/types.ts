@@ -16,6 +16,7 @@ export type TStopWatchState = TBaseTimeState & {
 };
 
 export type TTimerState = TBaseTimeState & {
+  isFinished: boolean;
   targetTime: number;
 };
 

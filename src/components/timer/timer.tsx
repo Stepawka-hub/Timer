@@ -1,49 +1,41 @@
 import { useActions } from "@hooks/useActions";
 
+import { TimerSetup } from "@components/timer-setup";
+import { useThemeControl } from "@hooks/useThemeControl";
 import {
+  getIsFinishedSelector,
   getIsPausedSelector,
   getIsStartedSelector,
   getTimeSelector,
 } from "@slices/timer";
 import { useSelector } from "@store";
 import { getFormattedTime } from "@utils/time";
-import { FC, useCallback, useEffect } from "react";
 import clsx from "clsx";
+import { FC, useCallback } from "react";
 import s from "./timer.module.css";
-import { TimerSetup } from "@components/timer-setup";
 
 export const Timer: FC = () => {
   const time = useSelector(getTimeSelector);
   const isStarted = useSelector(getIsStartedSelector);
   const isPaused = useSelector(getIsPausedSelector);
+  const isFinished = useSelector(getIsFinishedSelector);
 
-  const { timerStart, timerSetPause, timerReset, setTheme } = useActions();
+  const { timerStart, timerSetPause, timerReset } = useActions();
   const formattedTime = getFormattedTime(time);
+
+  useThemeControl(isPaused, isFinished);
 
   const start = useCallback(() => {
     timerStart();
   }, [timerStart]);
 
   const togglePause = useCallback(() => {
-    if (isPaused) {
-      timerSetPause(false);
-      setTheme("default");
-    } else {
-      timerSetPause(true);
-      setTheme("paused");
-    }
-  }, [isPaused, timerSetPause, setTheme]);
+    timerSetPause(!isPaused);
+  }, [isPaused, timerSetPause]);
 
   const reset = useCallback(() => {
     timerReset();
-    setTheme("default");
-  }, [timerReset, setTheme]);
-
-  useEffect(() => {
-    if (isPaused) {
-      setTheme("paused");
-    }
-  }, []);
+  }, [timerReset]);
 
   return (
     <div className={s.container}>
