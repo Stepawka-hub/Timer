@@ -18,27 +18,33 @@ export const StopWatch: FC = () => {
   const isPaused = useSelector(getIsPausedSelector);
   const time = useSelector(getTimeSelector);
 
-  const { start, setPause, reset, addRecord, setTheme } = useActions();
+  const {
+    stopWatchStart,
+    stopWatchSetPause,
+    stopWatchReset,
+    addRecord,
+    setTheme,
+  } = useActions();
   const formattedTime = getFormattedTime(time);
 
   const startStopWatch = useCallback(() => {
-    start();
-  }, [start]);
+    stopWatchStart();
+  }, [stopWatchStart]);
 
   const togglePause = useCallback(() => {
     if (isPaused) {
-      setPause(false);
+      stopWatchSetPause(false);
       setTheme("default");
     } else {
-      setPause(true);
+      stopWatchSetPause(true);
       setTheme("stopwatch-stop");
     }
-  }, [isPaused, setPause, setTheme]);
+  }, [isPaused, stopWatchSetPause, setTheme]);
 
   const resetStopWatch = useCallback(() => {
-    reset();
+    stopWatchReset();
     setTheme("default");
-  }, [reset, setTheme]);
+  }, [stopWatchReset, setTheme]);
 
   useEffect(() => {
     if (isPaused) {

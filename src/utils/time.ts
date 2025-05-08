@@ -26,3 +26,13 @@ export const formatTimeHHMMSS = (ms: number) => {
 
   return `${hoursStr}:${minutesStr}:${secondsStr}`;
 };
+
+export const formatTimeHHMMSSMS = (ms: number) => {
+  const { hours, minutes, seconds } = getTimeParts(ms);
+
+  const hoursStr = hours.toString().padStart(2, "0");
+  const minutesStr = minutes.toString().padStart(2, "0");
+  const secondsStr = Math.round(seconds).toString().padStart(2, "0");
+
+  return `${hoursStr}:${minutesStr}:${secondsStr}`;
+};

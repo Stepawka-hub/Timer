@@ -13,20 +13,20 @@ const stopWatchSlice = createSlice({
   name: "stopWatch",
   initialState,
   reducers: {
-    start: (state) => {
+    stopWatchStart: (state) => {
       state.isStarted = true;
       state.isPaused = false;
     },
-    setPause: (state, { payload }: PayloadAction<boolean>) => {
+    stopWatchSetPause: (state, { payload }: PayloadAction<boolean>) => {
       state.isPaused = payload;
     },
-    reset: (state) => {
+    stopWatchReset: (state) => {
       state.time = 0;
       state.isStarted = false;
       state.isPaused = false;
       state.records = [];
     },
-    tick: (state) => {
+    stopWatchTick: (state) => {
       if (state.isStarted && !state.isPaused) {
         state.time += 100;
       }

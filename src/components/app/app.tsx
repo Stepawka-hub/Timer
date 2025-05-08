@@ -7,10 +7,12 @@ import s from "./app.module.css";
 import { useStopwatchTimer } from "@hooks/useStopwatchTimer";
 import { useSelector } from "@store";
 import { getThemeSelector } from "@slices/app";
+import { useTimer } from '@hooks/useTimer';
 
 export const App: FC = () => {
   const theme = useSelector(getThemeSelector);
   useStopwatchTimer();
+  useTimer();
 
   return (
     <main className={s.wrapper} data-theme={theme}>

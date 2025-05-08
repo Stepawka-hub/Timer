@@ -1,11 +1,11 @@
 import { useSelector } from "@store";
 import { useActions } from "./useActions";
-import { getIsPausedSelector, getIsStartedSelector } from "@slices/stop-watch";
+import { getIsPausedSelector, getIsStartedSelector } from "@slices/timer";
 import { useCallback, useEffect, useRef } from "react";
 import { TTimeout } from "src/types";
 
-export const useStopwatchTimer = () => {
-  const { stopWatchTick } = useActions();
+export const useTimer = () => {
+  const { timerTick } = useActions();
   const isStarted = useSelector(getIsStartedSelector);
   const isPaused = useSelector(getIsPausedSelector);
   const timeoutRef = useRef<TTimeout>(null);
@@ -13,9 +13,9 @@ export const useStopwatchTimer = () => {
   const startTimer = useCallback(() => {
     if (!isStarted || isPaused) return;
 
-    stopWatchTick();
+    timerTick();
     timeoutRef.current = setTimeout(startTimer, 100);
-  }, [isStarted, isPaused, stopWatchTick]);
+  }, [isStarted, isPaused, timerTick]);
 
   useEffect(() => {
     if (isStarted && !isPaused) {

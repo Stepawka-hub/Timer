@@ -1,13 +1,17 @@
 import { FC, useEffect } from "react";
-import s from "./timer-page.module.css";
-import { useActions } from '@hooks/useActions';
+import { useActions } from "@hooks/useActions";
+import { Timer } from "@components/timer";
 
 export const TimerPage: FC = () => {
   const { setTheme } = useActions();
 
   useEffect(() => {
-    setTheme('default');
+    setTheme("default");
   }, []);
 
-  return <div className={s.page}>Timer Page</div>;
+  return (
+    <section>
+      <Timer />
+    </section>
+  );
 };

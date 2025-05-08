@@ -16,7 +16,7 @@
 
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--link-color);
+  color: var(--primary-text-color);
   background-color: var(--link-bg-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
   transition: all 0.2s ease-in;
@@ -28,4 +28,8 @@
 
 .link:not(.link_active):active {
   opacity: 0.7;
+}
+
+.link_active {
+  color: var(--link-color);
 }
