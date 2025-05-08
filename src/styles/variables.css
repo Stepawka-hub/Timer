@@ -16,13 +16,15 @@
 
   --record-diff-color: #4b84ff;
 
+  --timer-input-border-color: #4b84ff;
+
   --btn-color: #4b84ff;
   --disabled-btn-color: #ececec;
   --disabled-border-color: #ececec;
   --disabled-text-color: #707070;
 }
 
-[data-theme="stopwatch-stop"] {
+[data-theme="paused"] {
   --primary-text-color: #000;
   --secondary-text-color: #fff;
 
@@ -41,6 +43,27 @@
   --record-diff-color: #ff954f;
 
   --btn-color: #fe8e44;
+  --disabled-btn-color: #ececec;
+  --disabled-border-color: #ececec;
+  --disabled-text-color: #707070;
+}
+
+[data-theme="finished"] {
+  --primary-text-color: #000;
+  --secondary-text-color: #fff;
+
+  --header-color: #fe5d67;
+  --header-shadow-color: #fe5d67;
+  --link-color: #f43854;
+  --link-bg-color: #fff;
+
+  --stopwatch-bg-color-to: #ff414b;
+  --stopwatch-bg-color-center: #ff727b;
+  --stopwatch-bg-color-from: #ff414b;
+  --stopwatch-border-color: rgb(255, 47, 47);
+  --waves-color: rgba(255, 57, 35, 0.5);
+
+  --btn-color: #fe5d67;
   --disabled-btn-color: #ececec;
   --disabled-border-color: #ececec;
   --disabled-text-color: #707070;

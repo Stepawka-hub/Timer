@@ -1,4 +1,4 @@
-const getTimeParts = (ms: number) => {
+export const getTimeParts = (ms: number) => {
   const totalSeconds = ms / 1000;
 
   const seconds = totalSeconds % 60;

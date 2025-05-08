@@ -1,4 +1,3 @@
-import { Circle } from "@components/circle";
 import { useActions } from "@hooks/useActions";
 
 import {
@@ -11,6 +10,7 @@ import { getFormattedTime } from "@utils/time";
 import { FC, useCallback, useEffect } from "react";
 import clsx from "clsx";
 import s from "./timer.module.css";
+import { TimerSetup } from "@components/timer-setup";
 
 export const Timer: FC = () => {
   const time = useSelector(getTimeSelector);
@@ -30,7 +30,7 @@ export const Timer: FC = () => {
       setTheme("default");
     } else {
       timerSetPause(true);
-      setTheme("stopwatch-stop");
+      setTheme("paused");
     }
   }, [isPaused, timerSetPause, setTheme]);
 
@@ -41,26 +41,35 @@ export const Timer: FC = () => {
 
   useEffect(() => {
     if (isPaused) {
-      setTheme("stopwatch-stop");
+      setTheme("paused");
     }
   }, []);
 
   return (
     <div className={s.container}>
-      <div
-        className={s.timer}
-        onClick={isStarted ? togglePause : start}
-        tabIndex={0}
-      >
-        <span className={s.time}>{formattedTime}</span>
-        {isStarted && <Circle isPause={isPaused} />}
-      </div>
+      {!isStarted ? (
+        <TimerSetup />
+      ) : (
+        <div
+          className={s.timer}
+          onClick={isStarted ? togglePause : start}
+          tabIndex={0}
+        >
+          <span className={s.time}>{formattedTime}</span>
+        </div>
+      )}
 
       <div className={clsx(s.controls, { [s.active]: isStarted })}>
         <div className={s.buttons}>
-          <button className={s.button} disabled={!isStarted} onClick={reset}>
-            Перезапустить
-          </button>
+          {!isStarted ? (
+            <button className={s.button} onClick={start}>
+              Запустить
+            </button>
+          ) : (
+            <button className={s.button} onClick={reset}>
+              Перезапустить
+            </button>
+          )}
         </div>
       </div>
     </div>

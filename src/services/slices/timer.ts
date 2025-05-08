@@ -6,7 +6,7 @@ const initialState: TTimerState = {
   time: 0,
   isStarted: false,
   isPaused: false,
-  targetTime: 0,
+  targetTime: 300000,
 };
 
 const timerSlice = createSlice({
@@ -16,7 +16,6 @@ const timerSlice = createSlice({
     timerStart: (state) => {
       state.isStarted = true;
       state.isPaused = false;
-      state.targetTime = 3000;
       state.time = state.targetTime;
     },
     timerSetPause: (state, { payload }: PayloadAction<boolean>) => {
@@ -39,9 +38,16 @@ const timerSlice = createSlice({
 
       state.time -= INTERVAL;
     },
+    setTargetTime: (state, { payload }: PayloadAction<number>) => {
+      state.targetTime = payload;
+    },
+    addTargetTime: (state, { payload }: PayloadAction<number>) => {
+      state.targetTime += payload;
+    },
   },
   selectors: {
     getTimeSelector: (state) => state.time,
+    getTargetTimeSelector: (state) => state.targetTime,
     getIsStartedSelector: (state) => state.isStarted,
     getIsPausedSelector: (state) => state.isPaused,
   },
@@ -49,5 +55,9 @@ const timerSlice = createSlice({
 
 export const reducer = timerSlice.reducer;
 export const { actions } = timerSlice;
-export const { getIsPausedSelector, getIsStartedSelector, getTimeSelector } =
-  timerSlice.selectors;
+export const {
+  getIsPausedSelector,
+  getIsStartedSelector,
+  getTimeSelector,
+  getTargetTimeSelector,
+} = timerSlice.selectors;
