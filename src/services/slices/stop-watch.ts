@@ -7,7 +7,7 @@ const initialState: TStopWatchState = {
   isStarted: false,
   isPaused: false,
   records: [],
-  maxRecords: 15,
+  maxRecords: 12,
 };
 
 const stopWatchSlice = createSlice({

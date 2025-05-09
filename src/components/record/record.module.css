@@ -19,3 +19,10 @@
 .diff {
   color: var(--record-diff-color);
 }
+
+@media (max-width: 600px) {
+  .record {
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+}

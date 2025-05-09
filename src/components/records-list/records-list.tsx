@@ -8,7 +8,7 @@ export const RecordsList: FC = memo(() => {
   const records = useSelector(getRecordsSelector);
 
   if (!records.length) {
-    return <div>* Нажмите "Записать" для сохранения времени</div>
+    return <div className={s.emptyList}>* Нажмите "Записать" для сохранения времени</div>
   }
 
   const recordElements = records.map((record, index) => (

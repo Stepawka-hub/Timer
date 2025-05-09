@@ -1,8 +1,8 @@
 .container {
   display: flex;
   justify-content: center;
-  gap: 10rem;
-  padding-top: 7rem;
+  gap: 10%;
+  padding-top: 5rem;
 }
 
 .time {
@@ -10,14 +10,14 @@
   font-weight: 600;
   user-select: none;
   word-break: break-all;
-  text-align: center; 
+  text-align: center;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 25%;
+  width: 35%;
 }
 
 .buttons {
@@ -53,4 +53,50 @@
   background-color: var(--disabled-btn-color);
   border-color: var(--disabled-border-color);
   color: var(--disabled-text-color);
+}
+
+@media (max-width: 1280px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    width: 100%;
+  }
+
+  .controls {
+    gap: 1.75rem;
+    width: 80%;
+  }
+}
+
+@media (max-width: 960px) {
+  .time {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .button {
+    padding: 0.4rem 0.35rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    gap: 1.25rem;
+  }
+
+  .time {
+    font-size: 2.15rem;
+  }
+
+  .button {
+    padding: 0.3rem 0.25rem;
+    font-size: 1.1rem;
+  }
 }
