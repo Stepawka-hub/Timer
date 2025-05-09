@@ -18,6 +18,7 @@
       var(--time-circle-bg-color-to) 85%);
 
   color: var(--secondary-text-color);
+  outline: none;
 }
 
 .timeCircle:after {
