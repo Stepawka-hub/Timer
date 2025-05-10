@@ -49,3 +49,54 @@
   border-color: var(--disabled-border-color);
   color: var(--disabled-text-color);
 }
+
+@media (max-width: 1280px) {
+  .inputs {
+    font-size: 2.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .inputBtns {
+    margin-top: 2.25rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .inputs {
+    font-size: 2rem;
+  }
+
+  .input {
+    width: 5.5rem;
+    padding: 0.2rem;
+  }
+
+  .inputBtns {
+    margin-top: 2rem;
+  }
+
+  .inputBtn {
+    padding: 0.3rem 0.5rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .inputs {
+    font-size: 1.75rem;
+  }
+
+  .input {
+    width: 5rem;
+  }
+
+  .inputBtns {
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .inputBtn {
+    padding: 0.25rem 0.4rem;
+    font-size: 1.1rem;
+  }
+}

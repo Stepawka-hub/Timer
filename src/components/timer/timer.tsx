@@ -56,17 +56,15 @@ export const Timer: FC = () => {
       )}
 
       <div className={clsx(s.controls, { [s.active]: isStarted })}>
-        <div className={s.buttons}>
-          {!isStarted ? (
-            <button className={s.button} onClick={start}>
-              Запустить
-            </button>
-          ) : (
-            <button className={s.button} onClick={reset}>
-              Перезапустить
-            </button>
-          )}
-        </div>
+        {!isStarted ? (
+          <button className={s.button} onClick={start}>
+            Запустить
+          </button>
+        ) : (
+          <button className={s.button} onClick={reset}>
+            Перезапустить
+          </button>
+        )}
       </div>
     </div>
   );
