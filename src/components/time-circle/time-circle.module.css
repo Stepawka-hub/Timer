@@ -6,8 +6,9 @@
   cursor: pointer;
   flex-shrink: 0;
 
-  width: 25rem;
-  height: 25rem;
+  width: var(--time-circle-base-size);
+  height: var(--time-circle-base-size);
+
   border-radius: 50%;
   border: 0.35rem solid var(--time-circle-border-color);
   box-shadow: 0 0 8px 1px var(--time-circle-border-color);
@@ -24,19 +25,26 @@
 .timeCircle:after {
   content: '';
   position: absolute;
-  top: 49%;
-  left: 49%;
-  width: 0.5rem;
-  height: 0.5rem;
+  top: 45%;
+  left: 45%;
+  width: calc(var(--time-circle-base-size) * 0.1);
+  height: calc(var(--time-circle-base-size) * 0.1);
   border-radius: 50%;
+  background-color: var(--waves-color);
 
   opacity: 0;
-  background-color: var(--waves-color);
   transform: scale(1, 1);
+  transform-origin: 50% 50%;
 }
 
 .timeCircle:focus:not(:active)::after {
   animation: waves .85s ease-out;
+}
+
+@media (max-width: 1280px) {
+  .timeCircle { 
+    border-width: 0.25rem;
+  }
 }
 
 @keyframes waves {
@@ -44,63 +52,17 @@
     transform: scale(0, 0);
     opacity: 1;
   }
-
-  20% {
-    transform: scale(35, 35);
-    opacity: 1;
+  25% {
+    opacity: 0.85;
   }
-
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.15;
+  }
   100% {
     opacity: 0;
-    transform: scale(60, 60);
-  }
-}
-
-@media (max-width: 1280px) {
-  .timeCircle { 
-    width: 20rem;
-    height: 20rem;
-    border: 0.25rem solid var(--time-circle-border-color);
-  }
-
-  @keyframes waves {
-    0% {
-      transform: scale(0, 0);
-      opacity: 1;
-    }
-  
-    20% {
-      transform: scale(30, 30);
-      opacity: 1;
-    }
-  
-    100% {
-      opacity: 0;
-      transform: scale(50, 50);
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .timeCircle { 
-    width: 15rem;
-    height: 15rem;
-  }
-
-  @keyframes waves {
-    0% {
-      transform: scale(0, 0);
-      opacity: 1;
-    }
-  
-    20% {
-      transform: scale(25, 25);
-      opacity: 1;
-    }
-  
-    100% {
-      opacity: 0;
-      transform: scale(40, 40);
-    }
+    transform: scale(12, 12);
   }
 }
