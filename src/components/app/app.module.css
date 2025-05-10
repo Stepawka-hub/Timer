@@ -1,0 +1,15 @@
+.content {
+  padding: 2rem 4rem;
+}
+
+@media (max-width: 960px) {
+  .content {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 1rem;
+  }
+}

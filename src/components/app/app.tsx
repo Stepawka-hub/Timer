@@ -8,6 +8,7 @@ import {
   getIsStartedSelector as getIsStopwatchStarted,
 } from "@slices/stop-watch";
 import {
+  getIsFinishedSelector,
   getIsPausedSelector as getIsTimerPaused,
   getIsStartedSelector as getIsTimerStarted,
 } from "@slices/timer";
@@ -29,6 +30,7 @@ export const App: FC = () => {
     timerTick: timerTick,
     getIsStarted: getIsTimerStarted,
     getIsPaused: getIsTimerPaused,
+    getIsFinished: getIsFinishedSelector,
   });
 
   return (

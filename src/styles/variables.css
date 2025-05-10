@@ -8,16 +8,19 @@
   --link-bg-color: #fff;
   --link-notify: #fe5d67;
 
+  --time-circle-base-size: clamp(17.5rem, 35vw, 25rem);
   --time-circle-bg-color-to: #87abff;
   --time-circle-bg-color-center: #87c9ff;
   --time-circle-bg-color-from: #87abff;
   --time-circle-border-color: #4b84ff;
   --waves-color: rgba(91, 143, 255, 0.5);
+
   --circle-color: #4b84ff;
 
   --record-diff-color: #4b84ff;
 
   --timer-input-border-color: #4b84ff;
+  --sound-select-border-color: #4b84ff;
 
   --btn-color: #4b84ff;
   --disabled-btn-color: #ececec;

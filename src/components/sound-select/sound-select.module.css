@@ -1,0 +1,12 @@
+.selectTitle {
+  font-size: 1.1rem;
+}
+
+.select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid var(--sound-select-border-color);
+  margin-top: 0.5rem;
+}

@@ -8,12 +8,13 @@
   z-index: 5;
 }
 
+
 @keyframes GFG {
   0% {
-    transform: rotate(0deg) translateY(-197px);
+    transform: rotate(0deg) translate(calc(var(--time-circle-base-size) * 0.5));
   }
 
   100% {
-    transform: rotate(360deg) translateY(-197px);
+    transform: rotate(360deg) translate(calc(var(--time-circle-base-size) * 0.5));
   }
 }

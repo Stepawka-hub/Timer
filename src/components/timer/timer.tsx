@@ -14,6 +14,7 @@ import { formatTimeHHMMSS } from "@utils/time";
 import { FC, useCallback, useMemo } from "react";
 import clsx from "clsx";
 import s from "./timer.module.css";
+import { SoundSelect } from "@components/sound-select";
 
 export const Timer: FC = () => {
   const time = useSelector(getTimeSelector);
@@ -55,18 +56,19 @@ export const Timer: FC = () => {
         </TimeCircle>
       )}
 
-      <div className={clsx(s.controls, { [s.active]: isStarted })}>
-        <div className={s.buttons}>
-          {!isStarted ? (
+      <div className={clsx(s.controls)}>
+        {!isStarted ? (
+          <div className={s.options}>
             <button className={s.button} onClick={start}>
               Запустить
             </button>
-          ) : (
-            <button className={s.button} onClick={reset}>
-              Перезапустить
-            </button>
-          )}
-        </div>
+            <SoundSelect />
+          </div>
+        ) : (
+          <button className={s.button} onClick={reset}>
+            Перезапустить
+          </button>
+        )}
       </div>
     </div>
   );

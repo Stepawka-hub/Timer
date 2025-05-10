@@ -18,6 +18,13 @@ export type TStopWatchState = TBaseTimeState & {
 export type TTimerState = TBaseTimeState & {
   isFinished: boolean;
   targetTime: number;
+  sound: TSound | null;
+};
+
+export type TSound = {
+  id: number;
+  name: string;
+  link: string;
 };
 
 export type TTheme = "default" | "paused" | "finished";

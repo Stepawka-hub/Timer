@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 7rem;
+  padding-top: 5%;
 }
 
 .time {
@@ -13,23 +13,25 @@
   text-align: center;
 }
 
-.controls {
+.controls,
+.options {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  width: 25%;
+  width: 100%;
+}
+
+.controls {
+  max-width: 30rem;
   margin-top: 2.5rem;
 }
 
-.buttons {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+.options {
+  gap: 1.5rem;
 }
 
 .button {
-  flex: 1 1;
-  padding: 0.55rem 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
   border-radius: 2rem;
   font-size: 1.2rem;
   font-weight: 500;
@@ -53,4 +55,43 @@
   background-color: var(--disabled-btn-color);
   border-color: var(--disabled-border-color);
   color: var(--disabled-text-color);
+}
+
+@media (max-width: 1280px) {
+  .controls {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .controls {
+    margin-top: 1.25rem;
+  }
+
+  .options {
+    gap: 1.25rem;
+  }
+
+  .time {
+    font-size: 2.5rem;
+  }
+
+  .button {
+    padding: 0.4rem 0.75rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    width: 80%;
+  }
+
+  .options {
+    gap: 1rem;
+  }
+
+  .time {
+    font-size: 2.15rem;
+  }
 }
