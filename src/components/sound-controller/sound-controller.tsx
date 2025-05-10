@@ -1,12 +1,18 @@
-import { useEffect } from "react";
+import { getIsFinishedSelector, getTimerSoundSelector } from "@slices/timer";
+import { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
-import timerSound from "@sounds/timerSound.mp3";
 import useSound from "use-sound";
-import { getIsFinishedSelector } from "@slices/timer";
+import { SoundPlayerProps } from "./type";
 
-export const SoundController = () => {
+export const SoundController: FC = () => {
   const isFinished = useSelector(getIsFinishedSelector);
-  const [play, { stop }] = useSound(timerSound);
+  const sound = useSelector(getTimerSoundSelector);
+
+  return sound && <SoundPlayer isFinished={isFinished} sound={sound} />;
+};
+
+const SoundPlayer: FC<SoundPlayerProps> = ({ isFinished, sound }) => {
+  const [play, { stop }] = useSound(sound.link);
 
   useEffect(() => {
     if (isFinished) {

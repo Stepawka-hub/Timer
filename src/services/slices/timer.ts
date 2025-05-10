@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TTimerState } from "./types/types";
+import { TSound, TTimerState } from "./types/types";
 import { INTERVAL } from "@utils/constants";
+import { defaultSound } from "@utils/sounds";
 
 const initialState: TTimerState = {
   time: 0,
   isStarted: false,
   isPaused: false,
   isFinished: false,
-  targetTime: 300005,
+  targetTime: 0,
+  sound: defaultSound,
 };
 
 const timerSlice = createSlice({
@@ -46,6 +48,9 @@ const timerSlice = createSlice({
     addTargetTime: (state, { payload }: PayloadAction<number>) => {
       state.targetTime += payload;
     },
+    setTimerSound: (state, { payload }: PayloadAction<TSound | null>) => {
+      state.sound = payload;
+    },
   },
   selectors: {
     getTimeSelector: (state) => state.time,
@@ -53,6 +58,7 @@ const timerSlice = createSlice({
     getIsStartedSelector: (state) => state.isStarted,
     getIsPausedSelector: (state) => state.isPaused,
     getIsFinishedSelector: (state) => state.isFinished,
+    getTimerSoundSelector: (state) => state.sound,
   },
 });
 
@@ -64,4 +70,5 @@ export const {
   getTimeSelector,
   getTargetTimeSelector,
   getIsFinishedSelector,
+  getTimerSoundSelector,
 } = timerSlice.selectors;
